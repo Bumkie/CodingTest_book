@@ -1,0 +1,32 @@
+package practice;
+import java.util.*;
+
+public class bfxc {
+	public static void main(String[] args) {
+		Integer[] num = {3, 4, 3, 4, 3};
+		
+		int answer = 0;
+		
+		int n = 5;
+		int m = 7;
+		int k = 3;
+		
+		Arrays.sort(num, Collections.reverseOrder());
+		System.out.println(num[0]);
+		if(num[0] == num[1])
+			answer = num[0] * m;
+		else {
+			
+			int max = num[0];
+			int second = num[1];
+			
+			for(int i = 1 ; i < m+1; i++) {
+				if(i % k != 0)
+					answer += max;
+				else
+					answer += second;
+			}
+		}
+		System.out.println(answer);
+	}
+}
