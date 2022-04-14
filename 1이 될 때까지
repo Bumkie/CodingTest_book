@@ -1,0 +1,19 @@
+package practice;
+import java.util.*;
+
+public class bfxc {
+	public static void main(String[] args) {
+		int n = 25;
+		int k = 5;
+		int num = 0;
+		
+		while(n != 1) {
+			if(n % k == 0)
+				n = n / k;
+			else
+				n--;
+			num++;
+		}
+		System.out.println(num);
+	}
+}
