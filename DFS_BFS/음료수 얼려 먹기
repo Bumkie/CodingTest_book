@@ -1,0 +1,29 @@
+n, m = map(int, input().split())  # n m 입력 받기
+
+graph = []
+
+for i in range(n):
+  graph.append(list(map(int, input())))
+# list를 graph에 넣음으로서 2차배열 완성
+
+def dfs(x, y):
+  if(x < 0 or y < 0 or x > n - 1 or y > m -1):
+    return False # 범위를 벗어나면 끝내기
+  if(graph[x][y] == 0):
+    graph[x][y] = 1
+    dfs(x-1, y)
+    dfs(x+1, y)
+    dfs(x, y-1)
+    dfs(x, y+1) # 범위 내 에선 재귀호출로 근처 0을 1로 전환
+    return True
+  return False # 1인 경우엔 끝내기
+
+answer = 0
+
+for i in range(n):
+  for j in range(m):
+    if(dfs(i,j) == True):
+      answer += 1
+
+print(answer)
+    
