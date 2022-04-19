@@ -1,0 +1,24 @@
+n, m = list(map(int, input().split()))
+
+array = (list(map(int, input().split())))
+
+
+def binary_search(array, sum, start, end):
+  if(start > end):
+    return None
+
+  mid = (end + start) // 2
+  total = 0
+  for i in range(n):
+    if(array[i] >= mid):
+      total += array[i] - mid
+  if(total == sum):
+    return mid
+  elif(total > sum):
+    return binary_search(array, sum, mid+1, end)
+  else:
+    return binary_search(array, sum, start, mid-1)
+
+result = binary_search(array, m, 0, max(array))
+
+print(result)
