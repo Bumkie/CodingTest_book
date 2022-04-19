@@ -23,3 +23,40 @@ for i in range(m):
     print('no', end = ' ')
   else:
     print('yes', end = ' ')
+
+______________________________Java______________________________________
+package practice;
+
+public class bfxc {
+	public static void main(String[] args) {
+		
+		int n = 5;
+		int[] array = {8, 3, 7, 9, 2};
+		
+		int m = 3;
+		int[] target_arr = {5, 7, 9};
+		
+		
+		for(int i = 0; i < m; i++) {
+			int result = binary_search(array, target_arr[i], 0, n-1);
+		
+			if(result == 0)
+				System.out.print("no ");
+			else
+				System.out.print("yes ");
+		}
+	}
+	public static int binary_search(int[] array, int target, int start, int end) {
+		if(start > end)
+			return 0;
+		
+		int mid = (end + start) / 2;
+		
+		if(array[mid] == target)
+			return mid;
+		else if(array[mid] > target)
+			return binary_search(array, target, start, end - 1);
+		else
+			return binary_search(array, target, start + 1, end);
+	}
+}
