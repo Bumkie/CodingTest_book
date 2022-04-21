@@ -1,0 +1,20 @@
+n, m = map(int, input().split())
+
+k = []
+for i in range(n):
+  k.append(int(input()))
+
+arr = [10001] * (m + 1)
+
+arr[0] = 0
+
+for i in range(n):
+  for j in range(k[i], m+1):
+    if(arr[j - k[i]] != 10001):
+      arr[j] = min(arr[j], arr[j - k[i]] + 1)
+
+if(arr[m] != 10001):
+  print(arr[m])
+
+else :
+  print(-1)
