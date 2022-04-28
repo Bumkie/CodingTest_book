@@ -1,0 +1,11 @@
+n = list(input())
+
+result = 0
+for i in range(len(n)):
+  a = int(n[i])
+  if(a > 1 and result != 0):
+    result *= a
+  else:
+    result += a
+
+print(result)
