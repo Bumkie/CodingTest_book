@@ -1,0 +1,31 @@
+package practice;
+
+import java.util.*;
+
+public class bfxc {
+	public static void main(String[] args) {
+		
+		Scanner in = new Scanner(System.in);
+		
+		String str = in.next();
+		ArrayList<Character> arr = new ArrayList<>();
+		int count = 0;
+		
+		int n = str.length();
+		
+		for(int i = 0; i < n; i++) {
+			if(str.charAt(i) > 64) 
+				arr.add(str.charAt(i));
+			
+			else
+				count += str.charAt(i) - '0';
+		}
+		arr.sort(null);
+		String answer = "";
+		
+		for(int i = 0; i < arr.size(); i++)
+			answer += arr.get(i);
+		
+		System.out.println(answer+count);
+	}	
+}
