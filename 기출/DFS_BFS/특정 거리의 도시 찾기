@@ -45,10 +45,13 @@ public class bfxc {
 		}
 		
 		bfs(start);
-		int answer = -1;
+		boolean flag = true;
 		for(int i = 1; i < n+1; i++)
-			if(distance[i] == target)
-				answer = i;
-		System.out.println(answer);
+			if(distance[i] == target) {
+				System.out.println(i);
+				flag = false;
+			}
+		if(flag)
+			System.out.println(-1);
 	}	
 }
